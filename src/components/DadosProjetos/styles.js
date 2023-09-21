@@ -40,6 +40,11 @@ export const Cabecalho = styled.div`
   display:flex;
   flex-direction: column;
 
+  & span{
+    cursor: pointer;
+    margin-right: 12px;
+  }
+
   div{
     display: flex;
     align-items:center;
@@ -216,3 +221,4 @@ export const Progress = styled.div`
     font-weight: bold;
   }
 `;
+

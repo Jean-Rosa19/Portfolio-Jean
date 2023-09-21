@@ -30,12 +30,12 @@ export default function DadosProjetos() {
       <nav>
         <Menu>
           <Cabecalho>
-            <span>Menu</span>
+          <span id='sobre' onClick={() => handleClickMenu(true)}>Sobre</span>
             <div></div>
           </Cabecalho>
           <OpcoesMenu>
-            <span onClick={() => handleClickMenu(false)}>Projetos</span>
-            <span onClick={() => handleClickMenu(true)}>Sobre</span>
+            <span onClick={() => handleClickMenu(false)}>Skills</span>
+           
           </OpcoesMenu>
         </Menu>
       </nav>
@@ -53,8 +53,25 @@ export default function DadosProjetos() {
                 <b><a href='https://www.linkedin.com/in/dev-jeanrosa/' target={'_blank'}> Clicando aqui!</a></b>
               </span>
             </InfoDados>
-            <h1>Hard Skills</h1>
-            <Skills>
+            <h1>Projetos</h1>
+
+            <Itens>
+              {Projetos.map((projetos) =>
+                <Card initial="hidden" animate="visible" variants={variants}>
+                  <h3>{projetos.nome}</h3>
+                  <img src={projetos.img} alt="" />
+                  <a href={projetos.github} target={'_blank'}>
+                    <FaGithub size={20} />
+                    Git Hub
+                  </a>
+                </Card>
+              )}
+            </Itens>
+            
+          </>
+        ) : (
+          <>
+           <Skills>
               {ItensSkill.map((Item) =>
                 <ItemSkill animate={{ x: ['-100px', '100px', '0px'] }}
                   transition={{ ease: "easeOut", duration: 1 }}>
@@ -70,21 +87,6 @@ export default function DadosProjetos() {
                 </ItemSkill>
               )}
             </Skills>
-          </>
-        ) : (
-          <>
-            <Itens>
-              {Projetos.map((projetos) =>
-                <Card initial="hidden" animate="visible" variants={variants}>
-                  <h3>{projetos.nome}</h3>
-                  <img src={projetos.img} alt="" />
-                  <a href={projetos.github} target={'_blank'}>
-                    <FaGithub size={20} />
-                    Git Hub
-                  </a>
-                </Card>
-              )}
-            </Itens>
           </>
         )}
       </Dados>
